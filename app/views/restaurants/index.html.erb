@@ -1,30 +1,15 @@
-<p style="color: green"><%= notice %></p>
-<div class='container'>
-<h1>Restaurants</h1>
-</div>
-
-<div class="container" id="restaurants">
-
-  <% @restaurants.each do |restaurant| %>
-    <div class="card mb-3" style="max-width: 75%; max-height: 300px">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://picsum.photos/id/30/150/300" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body" style="max-width: 75%;">
-              <%= render restaurant %>
-              <p class="btn btn-light">
-                <%= link_to "Show this restaurant", restaurant %>
-              </p>
-          </div>
-        </div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>All restaurants</h1>
+      <ul class="list-group mb-3">
+        <% @restaurants.each do |restaurant| %>
+          <li class="list-group-item">
+            <%= link_to restaurant.name, restaurant_path(restaurant) %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add a new Restaurant", new_restaurant_path, class: 'btn btn-primary' %>
     </div>
-  <% end %>
-</div>
-<div class="container m-10">
-  <div class="btn btn-light mb-10">
-    <%= link_to "➕ New restaurant", new_restaurant_path %>
   </div>
 </div>
